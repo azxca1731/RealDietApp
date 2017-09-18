@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="Chart">
+        </activity>
+
+        <activity android:name="View_Calendar">
+        </activity>
     </application>
 
 </manifest>
