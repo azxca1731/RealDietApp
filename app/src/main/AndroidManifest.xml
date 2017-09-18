@@ -16,10 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Chart">
+        <activity android:name=".ChartActivity">
         </activity>
 
-        <activity android:name="View_Calendar">
+        <activity android:name=".ViewCalendarActivity">
         </activity>
     </application>
 

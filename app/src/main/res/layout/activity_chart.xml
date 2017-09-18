@@ -31,14 +31,12 @@
             android:layout_weight="1"
             android:id="@+id/button_main"
             android:text="메인"
-            android:onClick="onButton1Clicked"
             />
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="전체보기"
-            android:onClick="onButton2Clicked"
             />
 
     </LinearLayout>

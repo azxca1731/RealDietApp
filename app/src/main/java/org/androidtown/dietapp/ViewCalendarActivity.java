@@ -10,10 +10,10 @@ import android.widget.Button;
  * Created by zidru on 2017-09-18.
  */
 
-public class View_Calendar extends Activity {
+public class ViewCalendarActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_calendar);
+        setContentView(R.layout.activity_view_calender);
 
         Intent intent = getIntent();
         int yaer = intent.getExtras().getInt("Year");

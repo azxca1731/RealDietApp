@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.btn_chart:
                     {
-                        Intent chartIntent = new Intent(MainActivity.this,Chart.class);
+                        Intent chartIntent = new Intent(MainActivity.this,ChartActivity.class);
                         startActivity(chartIntent);
                     }
                         break;
