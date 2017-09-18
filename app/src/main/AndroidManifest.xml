@@ -21,6 +21,7 @@
 
         <activity android:name=".ViewCalendarActivity">
         </activity>
+        <activity android:name=".EmailPasswordActivity"></activity>
     </application>
 
 </manifest>

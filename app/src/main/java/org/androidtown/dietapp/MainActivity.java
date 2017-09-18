@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getId())
                 {
                     case R.id.btn_userinfo:
+                        Intent AuthItent = new Intent(MainActivity.this,EmailPasswordActivity.class);
+                        startActivity(AuthItent);
                         break;
                     case R.id.btn_menu:
                         break;
