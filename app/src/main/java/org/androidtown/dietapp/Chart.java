@@ -3,6 +3,8 @@ package org.androidtown.dietapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 
 /**
@@ -10,11 +12,13 @@ import android.widget.CalendarView;
  */
 
 public class Chart extends Activity {
+    Button button_main;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chart);
 
         CalendarView calendar = (CalendarView) findViewById(R.id.calendar);
+        button_main=(Button)findViewById(R.id.button_main);
         //리스너
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -25,6 +29,13 @@ public class Chart extends Activity {
                 intent.putExtra("Day", dayOfMonth);
 
                 startActivity(intent);
+            }
+        });
+        //리스너
+        button_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
