@@ -8,25 +8,25 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-    Button userInfo_btn;
-    Button menu_btn;
-    Button chart_btn;
-    Button plus_btn;
-    Button minus_btn;
-    ProgressBar calorie_pbar;
-    TextView percentage_view;
-    int progress;
-    View.OnClickListener listener;
+        public class MainActivity extends AppCompatActivity {
+            Button userInfo_btn;
+            Button menu_btn;
+            Button chart_btn;
+            Button plus_btn;
+            Button minus_btn;
+            ProgressBar calorie_pbar;
+            TextView percentage_view;
+            int progress;
+            View.OnClickListener listener;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        userInfo_btn=(Button) findViewById(R.id.btn_userinfo);
-        menu_btn=(Button)findViewById(R.id.btn_menu);
-        chart_btn=(Button)findViewById(R.id.btn_chart);
-        plus_btn=(Button)findViewById(R.id.btn_plus);
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+                userInfo_btn=(Button) findViewById(R.id.btn_userinfo);
+                menu_btn=(Button)findViewById(R.id.btn_menu);
+                chart_btn=(Button)findViewById(R.id.btn_chart);
+                plus_btn=(Button)findViewById(R.id.btn_plus);
         minus_btn=(Button)findViewById(R.id.btn_minus);
         calorie_pbar=(ProgressBar)findViewById(R.id.pbar_calorie);
         percentage_view=(TextView)findViewById(R.id.view_percentage);
