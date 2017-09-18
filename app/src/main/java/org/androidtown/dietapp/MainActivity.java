@@ -1,5 +1,6 @@
 package org.androidtown.dietapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btn_menu:
                         break;
                     case R.id.btn_chart:
+                    {
+                        Intent chartIntent = new Intent(MainActivity.this,Chart.class);
+                        startActivity(chartIntent);
+                    }
                         break;
                     case R.id.btn_plus:
                         if (progress<100)
