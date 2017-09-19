@@ -60,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getId())
                 {
                     case R.id.btn_userinfo:
-                        Intent AuthItent = new Intent(MainActivity.this,EmailPasswordActivity.class);
-                        startActivity(AuthItent);
+                        Intent AuthIntent = new Intent(MainActivity.this,EmailPasswordActivity.class);
+                        startActivity(AuthIntent);
                         break;
                     case R.id.btn_menu:
+                        Intent menuIntent = new Intent(MainActivity.this,MenuActivity.class);
+                        startActivity(menuIntent);
                         break;
                     case R.id.btn_chart:
                     {
