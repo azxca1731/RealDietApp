@@ -4,9 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import static android.R.id.list;
 
 public class MainActivity extends AppCompatActivity {
     Button userInfo_btn;
@@ -18,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     TextView percentage_view;
     int progress;
     View.OnClickListener listener;
-
+    ListView history_view;
+    ArrayList<String> arrHistory;
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +38,20 @@ public class MainActivity extends AppCompatActivity {
         minus_btn=(Button)findViewById(R.id.btn_minus);
         calorie_pbar=(ProgressBar)findViewById(R.id.pbar_calorie);
         percentage_view=(TextView)findViewById(R.id.view_percentage);
+        history_view=(ListView)findViewById(R.id.view_history);
+
+      //리스트뷰에 보여줄 아이템을 추가하는 부분 지금은 예시라 스트링을 넣었음 추후에 db에서 가져온 오늘 먹은 음식의 이름을 추가하게 변경예정
+        arrHistory = new ArrayList<>();
+        arrHistory.add("Food1");
+        arrHistory.add("Food2");
+        arrHistory.add("Food3");
+
+        //어댑터 객체화후 리스트뷰에 추가하는 부분
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrHistory);
+        history_view.setAdapter(adapter);
         progress=0;
 
+        //변경할 사항 리스트 뷰의 아이템을 눌렀을때 자세한 액티비티를 보여줄 부분이 필요함
         listener = new View.OnClickListener()
         {
             @Override
