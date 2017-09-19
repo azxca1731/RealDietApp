@@ -10,9 +10,15 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import static android.R.id.list;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button userInfo_btn;
@@ -27,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     ListView history_view;
     ArrayList<String> arrHistory;
     ArrayAdapter<String> adapter;
+    //현재 임시로 넣은 변수들
+    String name;
+    int basicCalorie;
+    int weight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         calorie_pbar=(ProgressBar)findViewById(R.id.pbar_calorie);
         percentage_view=(TextView)findViewById(R.id.view_percentage);
         history_view=(ListView)findViewById(R.id.view_history);
+        //디비로 유저 이름, 유저 기초대사량, 유저 몸무게 받아옴  이 부분은 진짜 만지지 말것
+        //기본 선언
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid=user.getUid();
+        DatabaseReference mMyInfoRef=FirebaseDatabase.getInstance().getReference().child("user").child(uid);
+        //기본 선언 끝
+        //name basicCalorie weight 받아오는구간
+        mMyInfoRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UsersItem myInfo = dataSnapshot.getValue(UsersItem.class);
+                name=myInfo.getName();
+                basicCalorie=myInfo.getBasicCalorie();
+                weight=myInfo.getWeight();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
       //리스트뷰에 보여줄 아이템을 추가하는 부분 지금은 예시라 스트링을 넣었음 추후에 db에서 가져온 오늘 먹은 음식의 이름을 추가하게 변경예정
         arrHistory = new ArrayList<>();

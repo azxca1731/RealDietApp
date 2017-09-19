@@ -1,5 +1,9 @@
 package org.androidtown.dietapp;
 
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.UUID;
+
 /**
  * Created by latitude7275 on 2017-09-14.
  */
@@ -11,6 +15,7 @@ public class FoodItem {
     public int fat;
     public int carbohydrate;
     public int protein;
+    public String uid;
 
     public FoodItem() {
 
@@ -18,12 +23,17 @@ public class FoodItem {
     }
 
     public FoodItem(String category, String name,int calorie, int carbohydrate, int protein, int fat) {
+        uid= UUID.randomUUID().toString();
         this.category = category;
         this.name = name;
         this.fat = fat;
         this.carbohydrate = carbohydrate;
         this.protein = protein;
         this.calorie = calorie;
+    }
+
+    public void SendtoFirebase(DatabaseReference mRFood){
+        mRFood.child(uid).setValue(this);
     }
 
     public String getCategory() {

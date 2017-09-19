@@ -16,6 +16,7 @@
 
 package org.androidtown.dietapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -94,6 +95,7 @@ public class EmailPasswordActivity extends BaseActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //유저생성이 완료
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -129,6 +131,9 @@ public class EmailPasswordActivity extends BaseActivity implements
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+                            //내가 만든 부분
+                            Intent UserInfoIntent=new Intent(EmailPasswordActivity.this,UserInfoActivity.class);
+                            startActivity(UserInfoIntent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
